@@ -21,6 +21,7 @@ function checkPassword() {
         if (username === usernames[i].username) {
             if (password === usernames[i].password) {
                 alert(`Hello ${usernames[i].name}!`);
+                document.cookie = "username=" + usernames[i].username;
                 window.location.href = 'draftPage.html';
             } else {
                 alert('Password incorrect')
@@ -29,4 +30,5 @@ function checkPassword() {
         };
     };
 }
+
 document.getElementById('submit').addEventListener('click', checkPassword);
