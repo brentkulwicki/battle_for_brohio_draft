@@ -17,7 +17,7 @@ td {
     height: 150px;
 }
 #player_search {
-    border: 1px solid black;
+    border: 2px solid black;
     width: 10%;
     height: 75vh;
     float: left;
@@ -31,9 +31,51 @@ input {
 }
 #playerList {
     padding: 0;
+    border: 1px solid black;
+    overflow: scroll;
 }
 li {
     list-style: none;
     border: 1px solid black;
     cursor: pointer;
+}
+#playerPositionTeam {
+    float: left;
+    display: inline-block;
+    width: 10%;
+    border: 2px solid black;
+    height: 100%;
+}
+#playerStats {
+    display: inline-block;
+    border: 2px solid black;
+    width: 90%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+#lastYear {
+    display: inline-block;
+    border: 1px solid black;
+    height: 100%;
+    width: 15%;
+}
+.statBox {
+    display: inline-block;
+    border: 1px solid black;
+    height: 100%;
+    width: 10%;
+}
+#draftButtonContainer {
+    display: inline-block;
+    width: 15%;
+    height: 100%;
+    border: 1px solid red;
+}
+h3 {
+    margin: 0;
+}
+p {
+    margin: 0;
+    padding: 0;
 }

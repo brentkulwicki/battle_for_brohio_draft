@@ -1,19 +1,32 @@
 let lastName = document.getElementById('lastName');
-let firstName = document.getElementById('firstName');
-let first = '';
 let last = '';
 let getData = new XMLHttpRequest;
 let jsonData = [];
 let jsonHittingStats = [];
 let jsonPitchingStats = [];
 let playerParent = document.getElementById('playerList');
+//variable for the nodes where the html will be spliced in using innerHTML
+let gs = document.getElementById('gs');
+let runs = document.getElementById('runs');
+let hr = document.getElementById('hr');
+let rbi = document.getElementById('rbi');
+let sb = document.getElementById('sb');
+let obp = document.getElementById('obp');
+let slg = document.getElementById('slg');
+let innings = document.getElementById('innings');
+let qs = document.getElementById('qs');
+let sv = document.getElementById('sv');
+let era = document.getElementById('era');
+let whip = document.getElementById('whip');
+let kbb = document.getElementById('kbb');
+let displayName = document.getElementById('displayName');
+let displayTeam = document.getElementById('displayTeam');
 
 let button = document.getElementById('playerSearch');
 button.addEventListener('click', getPlayer)
 
 function getPlayer () {
     removePlayerList();
-    first = firstName.value;
     last = lastName.value;
     getData.open('GET', `http://lookup-service-prod.mlb.com/json/named.search_player_all.bam?sport_code='mlb'&active_sw='Y'&name_part='${last}%25'`, true)
     getData.onload = function() {
@@ -68,7 +81,7 @@ function removePlayerList () {
         playerParent.removeChild(playerParent.firstChild);
     };
 };
-
+//this function is listening to the click on the li's that are created from the first player search
 playerParent.addEventListener('click', function(event) {
     let playerId = event.target.id;
     let playerPosition = event.target.className;
@@ -89,7 +102,7 @@ function getHittingStats(id) {
     getData.onload = function() {
         if (this.status === 200) {
             jsonHittingStats.push(JSON.parse(this.responseText));
-            console.log(jsonHittingStats);
+            //need to use innerHTML here to push the data into the stats fields
         }
     }
     getData.send();
@@ -101,7 +114,7 @@ function getPitchingStats(id) {
     getData.onload = function() {
         if (this.status === 200) {
             jsonPitchingStats.push(JSON.parse(this.responseText));
-            console.log(jsonPitchingStats);
+            displayName.innerHTML()
         }
     }
     getData.send();
