@@ -4,7 +4,8 @@ let first = '';
 let last = '';
 let getData = new XMLHttpRequest;
 let jsonData = [];
-let jsonStats = [];
+let jsonHittingStats = [];
+let jsonPitchingStats = [];
 let playerParent = document.getElementById('playerList');
 
 let button = document.getElementById('playerSearch');
@@ -26,8 +27,8 @@ function getPlayer () {
 
 function displayPlayers() {
     let name;
-    let position;
     let team;
+    let position;
     let playerId;
     let arrayLength;
     let createEl;
@@ -39,6 +40,7 @@ function displayPlayers() {
         playerId = jsonData[0].search_player_all.queryResults.row.player_id;
         createEl = document.createElement('li');
         createEl.setAttribute('id', playerId);
+        createEl.setAttribute('class', position);
         createText = document.createTextNode(`${name} - ${position} - ${team}`);
         createEl.appendChild(createText);
         playerParent.appendChild(createEl);
@@ -53,6 +55,7 @@ function displayPlayers() {
             playerId = jsonData[0].search_player_all.queryResults.row[i].player_id;
             createEl = document.createElement('li');
             createEl.setAttribute('id', playerId);
+            createEl.setAttribute('class', position);
             createText = document.createTextNode(`${name} - ${position} - ${team}`);
             createEl.appendChild(createText);
             playerParent.appendChild(createEl);
@@ -68,18 +71,39 @@ function removePlayerList () {
 
 playerParent.addEventListener('click', function(event) {
     let playerId = event.target.id;
-    getPlayerStats(playerId);
-})
+    let playerPosition = event.target.className;
+    getPlayerStats(playerId, playerPosition);
+});
 
-function getPlayerStats (id) {
+function getPlayerStats (id, position) {
+    if (position === 'P') {
+        getPitchingStats(id);
+    } else {
+        getHittingStats(id);
+    };
+};
+function getHittingStats(id) {
+    jsonHittingStats = [];
     let idNumber = id;
     getData.open('GET', `http://lookup-service-prod.mlb.com/json/named.sport_hitting_tm.bam?league_list_id='mlb'&game_type='R'&season='2018'&player_id='${idNumber}'`, true)
     getData.onload = function() {
         if (this.status === 200) {
-            jsonStats.push(JSON.parse(this.responseText));
-            console.log(jsonStats);
+            jsonHittingStats.push(JSON.parse(this.responseText));
+            console.log(jsonHittingStats);
         }
     }
     getData.send();
-};
+}
+function getPitchingStats(id) {
+    jsonPitchingStats = [];
+    let idNumber = id;
+    getData.open('GET', `http://lookup-service-prod.mlb.com/json/named.sport_pitching_tm.bam?league_list_id='mlb'&game_type='R'&season='2018'&player_id='${idNumber}'`, true)
+    getData.onload = function() {
+        if (this.status === 200) {
+            jsonPitchingStats.push(JSON.parse(this.responseText));
+            console.log(jsonPitchingStats);
+        }
+    }
+    getData.send();
+}
 // gonna use the event.target once the players name/team/position is displayed on the lefthand side. The click event to display stats will use a click event and event.target
