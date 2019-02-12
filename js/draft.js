@@ -85,6 +85,8 @@ function removePlayerList () {
 playerParent.addEventListener('click', function(event) {
     let playerId = event.target.id;
     let playerPosition = event.target.className;
+    let playerInformation = event.target.innerHTML;
+    displayPlayerInfo(playerInformation);
     getPlayerStats(playerId, playerPosition);
 });
 
@@ -95,6 +97,7 @@ function getPlayerStats (id, position) {
         getHittingStats(id);
     };
 };
+//These two function pull the hitting and pitching data from MLB's website
 function getHittingStats(id) {
     jsonHittingStats = [];
     let idNumber = id;
@@ -102,7 +105,7 @@ function getHittingStats(id) {
     getData.onload = function() {
         if (this.status === 200) {
             jsonHittingStats.push(JSON.parse(this.responseText));
-            //need to use innerHTML here to push the data into the stats fields
+            displayHittingStats();
         }
     }
     getData.send();
@@ -114,9 +117,42 @@ function getPitchingStats(id) {
     getData.onload = function() {
         if (this.status === 200) {
             jsonPitchingStats.push(JSON.parse(this.responseText));
-            displayName.innerHTML()
+            displayPitcherStats();
         }
     }
     getData.send();
 }
-// gonna use the event.target once the players name/team/position is displayed on the lefthand side. The click event to display stats will use a click event and event.target
+function displayPlayerInfo (playerTeamPosition) {
+    let draftPlayerName = document.getElementById('displayName');
+    draftPlayerName.innerHTML = playerTeamPosition;
+}
+function displayHittingStats() {
+    innings.innerHTML = '-';
+    qs.innerHTML = '-';
+    sv.innerHTML = '-';
+    era.innerHTML = '-';
+    whip.innerHTML = '-';
+    kbb.innerHTML = '-';
+    gs.innerHTML = jsonHittingStats[0].sport_hitting_tm.queryResults.row.g;
+    runs.innerHTML = jsonHittingStats[0].sport_hitting_tm.queryResults.row.r;
+    hr.innerHTML = jsonHittingStats[0].sport_hitting_tm.queryResults.row.hr;
+    rbi.innerHTML = jsonHittingStats[0].sport_hitting_tm.queryResults.row.rbi;
+    sb.innerHTML = jsonHittingStats[0].sport_hitting_tm.queryResults.row.sb;
+    obp.innerHTML = jsonHittingStats[0].sport_hitting_tm.queryResults.row.obp;
+    slg.innerHTML = jsonHittingStats[0].sport_hitting_tm.queryResults.row.slg;
+}
+function displayPitcherStats() {
+    runs.innerHTML = '-';
+    hr.innerHTML = '-';
+    rbi.innerHTML = '-';
+    sb.innerHTML = '-';
+    obp.innerHTML = '-';
+    slg.innerHTML = '-';
+    gs.innerHTML = jsonPitchingStats[0].sport_pitching_tm.queryResults.row.g;
+    innings.innerHTML = jsonPitchingStats[0].sport_pitching_tm.queryResults.row.ip;
+    qs.innerHTML = jsonPitchingStats[0].sport_pitching_tm.queryResults.row.qs;
+    sv.innerHTML = jsonPitchingStats[0].sport_pitching_tm.queryResults.row.sv;
+    era.innerHTML = jsonPitchingStats[0].sport_pitching_tm.queryResults.row.era;
+    whip.innerHTML = jsonPitchingStats[0].sport_pitching_tm.queryResults.row.whip;
+    kbb.innerHTML = jsonPitchingStats[0].sport_pitching_tm.queryResults.row.kbb;
+}
