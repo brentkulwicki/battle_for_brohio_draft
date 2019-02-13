@@ -200,121 +200,144 @@ function checkDraftedPlayers() {
         };
     };
 };
+//This section is for using the same player selectors as above, but then inputs them as keepers at the bottom of the draft board instead of into the normal draft flow
 function inputKeepers() {
+    let selectedPlayer = document.getElementById('displayName').innerHTML;
     let cells = document.querySelectorAll('td');
     let cellArray = Array.from(cells);
     let selectTeam = document.querySelector('select');
-    let playerKeeper = selectedPlayer;
     switch (selectTeam.value) {
-		case 'Vin':
-			for (let i = 21; i > 0; i = i - 5) {
+        case 'Vin':
+			for (let i = 441; i > 0; i = i - 11) {
 				let newObject = cellArray[i];
 				let htmlValue = newObject.innerHTML;
 				htmlValue = htmlValue.toString();
-				if (htmlValue.length < 1) {
-					cells[i].innerHTML = keeperPlayer.value;
+				if (htmlValue.length < 1 && draftButton.className === 'active') {
+                    cells[i].innerHTML = selectedPlayer;
+                    draftedPlayers.push(playerId);
+                    draftButton.setAttribute('class', 'disabled');
 					break;
 				};
-			};
+            };
 			break;
 		case 'BB':
-			for (let i = 22; i > 0; i = i - 5) {
+			for (let i = 442; i > 0; i = i - 11) {
 				let newObject = cellArray[i];
 				let htmlValue = newObject.innerHTML;
 				htmlValue = htmlValue.toString();
-				if (htmlValue.length < 1) {
-					cells[i].innerHTML = keeperPlayer.value;
+				if (htmlValue.length < 1 && draftButton.className === 'active') {
+                    cells[i].innerHTML = selectedPlayer;
+                    draftedPlayers.push(playerId);
+                    draftButton.setAttribute('class', 'disabled');
 					break;
 				};
 			};
 			break;
 		case 'BRUC':
-			for (let i = 23; i > 0; i = i - 5) {
+			for (let i = 443; i > 0; i = i - 11) {
 				let newObject = cellArray[i];
 				let htmlValue = newObject.innerHTML;
 				htmlValue = htmlValue.toString();
-				if (htmlValue.length < 1) {
-					cells[i].innerHTML = keeperPlayer.value;
+				if (htmlValue.length < 1 && draftButton.className === 'active') {
+                    cells[i].innerHTML = selectedPlayer;
+                    draftedPlayers.push(playerId);
+                    draftButton.setAttribute('class', 'disabled');
 					break;
 				};
 			};
 			break;
 		case 'BK':
-			for (let i = 24; i > 0; i = i - 5) {
+			for (let i = 444; i > 0; i = i - 11) {
 				let newObject = cellArray[i];
 				let htmlValue = newObject.innerHTML;
 				htmlValue = htmlValue.toString();
-				if (htmlValue.length < 1) {
-					cells[i].innerHTML = keeperPlayer.value;
+				if (htmlValue.length < 1 && draftButton.className === 'active') {
+                    cells[i].innerHTML = selectedPlayer;
+                    draftedPlayers.push(playerId);
+                    draftButton.setAttribute('class', 'disabled');
 					break;
 				};
 			};
             break;
         case 'XTG':
-			for (let i = 24; i > 0; i = i - 5) {
+			for (let i = 445; i > 0; i = i - 11) {
 				let newObject = cellArray[i];
 				let htmlValue = newObject.innerHTML;
 				htmlValue = htmlValue.toString();
-				if (htmlValue.length < 1) {
-					cells[i].innerHTML = keeperPlayer.value;
+				if (htmlValue.length < 1 && draftButton.className === 'active') {
+                    cells[i].innerHTML = selectedPlayer;
+                    draftedPlayers.push(playerId);
+                    draftButton.setAttribute('class', 'disabled');
 					break;
 				};
 			};
             break;
         case 'JW':
-			for (let i = 24; i > 0; i = i - 5) {
+			for (let i = 446; i > 0; i = i - 11) {
 				let newObject = cellArray[i];
 				let htmlValue = newObject.innerHTML;
 				htmlValue = htmlValue.toString();
-				if (htmlValue.length < 1) {
-					cells[i].innerHTML = keeperPlayer.value;
+				if (htmlValue.length < 1 && draftButton.className === 'active') {
+                    cells[i].innerHTML = selectedPlayer;
+                    draftedPlayers.push(playerId);
+                    draftButton.setAttribute('class', 'disabled');
 					break;
 				};
 			};
             break;
         case 'Patt':
-			for (let i = 24; i > 0; i = i - 5) {
+			for (let i = 447; i > 0; i = i - 11) {
 				let newObject = cellArray[i];
 				let htmlValue = newObject.innerHTML;
 				htmlValue = htmlValue.toString();
-				if (htmlValue.length < 1) {
-					cells[i].innerHTML = keeperPlayer.value;
+				if (htmlValue.length < 1 && draftButton.className === 'active') {
+                    cells[i].innerHTML = selectedPlayer;
+                    draftedPlayers.push(playerId);
+                    draftButton.setAttribute('class', 'disabled');
 					break;
 				};
 			};
             break;
         case 'WW':
-			for (let i = 24; i > 0; i = i - 5) {
+			for (let i = 448; i > 0; i = i - 11) {
 				let newObject = cellArray[i];
 				let htmlValue = newObject.innerHTML;
 				htmlValue = htmlValue.toString();
-				if (htmlValue.length < 1) {
-					cells[i].innerHTML = keeperPlayer.value;
+				if (htmlValue.length < 1 && draftButton.className === 'active') {
+                    cells[i].innerHTML = selectedPlayer;
+                    draftedPlayers.push(playerId);
+                    draftButton.setAttribute('class', 'disabled');
 					break;
 				};
 			};
             break;
         case 'JMO':
-			for (let i = 24; i > 0; i = i - 5) {
+			for (let i = 449; i > 0; i = i - 11) {
 				let newObject = cellArray[i];
 				let htmlValue = newObject.innerHTML;
 				htmlValue = htmlValue.toString();
-				if (htmlValue.length < 1) {
-					cells[i].innerHTML = keeperPlayer.value;
+				if (htmlValue.length < 1 && draftButton.className === 'active') {
+                    cells[i].innerHTML = selectedPlayer;
+                    draftedPlayers.push(playerId);
+                    draftButton.setAttribute('class', 'disabled');
 					break;
 				};
 			};
             break;
         case 'seth':
-			for (let i = 439; i > 0; i = i - 11) {
+			for (let i = 450; i > 0; i = i - 11) {
 				let newObject = cellArray[i];
 				let htmlValue = newObject.innerHTML;
 				htmlValue = htmlValue.toString();
-				if (htmlValue.length < 1) {
-					cells[i].innerHTML = keeperPlayer.value;
+				if (htmlValue.length < 1 && draftButton.className === 'active') {
+                    cells[i].innerHTML = selectedPlayer;
+                    draftedPlayers.push(playerId);
+                    draftButton.setAttribute('class', 'disabled');
 					break;
 				};
 			};
 		    break;
 	};
 };
+let keeperButton = document.getElementById('keepPlayers');
+keeperButton.addEventListener('click', inputKeepers);
