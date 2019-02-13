@@ -21,6 +21,7 @@ td {
     width: 10%;
     height: 75vh;
     float: left;
+    overflow: scroll;
 }
 table {
     width: 90%;
@@ -32,7 +33,7 @@ input {
 #playerList {
     padding: 0;
     border: 1px solid black;
-    overflow: scroll;
+    
 }
 li {
     list-style: none;
