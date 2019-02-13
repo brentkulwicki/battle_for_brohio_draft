@@ -42,7 +42,7 @@
                     <p>k/bb - <span id='kbb'>-</span></p>
                 </div>
                 <div id='draftButtonContainer'>
-                    <button id='draftButton'>Draft Player</button>
+                    <button id='draftButton' class='disabled'>Draft Player</button>
                 </div>
             </div>
         </div>
@@ -589,6 +589,21 @@
                     <td></td>
                 </tr>
             </table>
+            <div id='enterKeepers'>
+                <select>
+                    <option value='Vin'>Vin</option>
+                    <option value='BB'>BB</option>
+                    <option value='BRUC'>BRUC</option>
+                    <option value='BK'>BK</option>
+                    <option value='XTG'>XTG</option>
+                    <option value='JW'>JW</option>
+                    <option value='Patt'>Patt</option>
+                    <option value='WW'>WW</option>
+                    <option value='JMO'>JMO</option>
+                    <option value='seth'>seth</option>
+                </select>
+                <button id='keepPlayers'>Enter Keeper</button>
+            </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/draft.js"></script>

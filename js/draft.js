@@ -21,6 +21,9 @@ let whip = document.getElementById('whip');
 let kbb = document.getElementById('kbb');
 let displayName = document.getElementById('displayName');
 let displayTeam = document.getElementById('displayTeam');
+let draftButton = document.getElementById('draftButton');
+let draftedPlayers = [];
+let playerId;
 
 let button = document.getElementById('playerSearch');
 button.addEventListener('click', getPlayer)
@@ -83,7 +86,7 @@ function removePlayerList () {
 };
 //this function is listening to the click on the li's that are created from the first player search
 playerParent.addEventListener('click', function(event) {
-    let playerId = event.target.id;
+    playerId = event.target.id;
     let playerPosition = event.target.className;
     let playerInformation = event.target.innerHTML;
     displayPlayerInfo(playerInformation);
@@ -122,11 +125,14 @@ function getPitchingStats(id) {
     }
     getData.send();
 }
+// this function grabs the player data being displayed in the playersearch section and puts it at the tope of the page
 function displayPlayerInfo (playerTeamPosition) {
     let draftPlayerName = document.getElementById('displayName');
     draftPlayerName.innerHTML = playerTeamPosition;
 }
+// these two functions display the hitting and pitching stats from MLB's site
 function displayHittingStats() {
+    checkDraftedPlayers();
     innings.innerHTML = '-';
     qs.innerHTML = '-';
     sv.innerHTML = '-';
@@ -142,6 +148,7 @@ function displayHittingStats() {
     slg.innerHTML = jsonHittingStats[0].sport_hitting_tm.queryResults.row.slg;
 }
 function displayPitcherStats() {
+    checkDraftedPlayers();
     runs.innerHTML = '-';
     hr.innerHTML = '-';
     rbi.innerHTML = '-';
@@ -156,3 +163,158 @@ function displayPitcherStats() {
     whip.innerHTML = jsonPitchingStats[0].sport_pitching_tm.queryResults.row.whip;
     kbb.innerHTML = jsonPitchingStats[0].sport_pitching_tm.queryResults.row.kbb;
 }
+
+draftButton.addEventListener('click', draftPlayer)
+
+function draftPlayer () {
+    let selectedPlayer = document.getElementById('displayName').innerHTML;
+    let cells = document.querySelectorAll('td');
+    let cellArray = Array.from(cells);
+    let isActive = draftButton.className;
+    if (isActive === 'active') {
+        for (let i = 12; i < cellArray.length; i++) {
+            let arrayObject = cellArray[i];
+            let textValue = arrayObject.innerHTML;
+            textValue = textValue.toString();
+            if (textValue.length < 1) {
+                cells[i].innerHTML = selectedPlayer;
+                draftedPlayers.push(playerId);
+                draftButton.setAttribute('class', 'disabled');
+                break;
+            }
+        }
+    } else {
+        console.log('this should display as default');
+    }
+}
+function checkDraftedPlayers() {
+    if (draftedPlayers.length < 1) {
+        draftButton.setAttribute('class', 'active');
+    } else {
+        for (let i = 0; i < draftedPlayers.length; i++) {
+            if (playerId === draftedPlayers[i]) {
+                draftButton.setAttribute('class', 'disabled');
+            } else {
+                draftButton.setAttribute('class', 'active');
+            };
+        };
+    };
+};
+function inputKeepers() {
+    let cells = document.querySelectorAll('td');
+    let cellArray = Array.from(cells);
+    let selectTeam = document.querySelector('select');
+    let playerKeeper = selectedPlayer;
+    switch (selectTeam.value) {
+		case 'Vin':
+			for (let i = 21; i > 0; i = i - 5) {
+				let newObject = cellArray[i];
+				let htmlValue = newObject.innerHTML;
+				htmlValue = htmlValue.toString();
+				if (htmlValue.length < 1) {
+					cells[i].innerHTML = keeperPlayer.value;
+					break;
+				};
+			};
+			break;
+		case 'BB':
+			for (let i = 22; i > 0; i = i - 5) {
+				let newObject = cellArray[i];
+				let htmlValue = newObject.innerHTML;
+				htmlValue = htmlValue.toString();
+				if (htmlValue.length < 1) {
+					cells[i].innerHTML = keeperPlayer.value;
+					break;
+				};
+			};
+			break;
+		case 'BRUC':
+			for (let i = 23; i > 0; i = i - 5) {
+				let newObject = cellArray[i];
+				let htmlValue = newObject.innerHTML;
+				htmlValue = htmlValue.toString();
+				if (htmlValue.length < 1) {
+					cells[i].innerHTML = keeperPlayer.value;
+					break;
+				};
+			};
+			break;
+		case 'BK':
+			for (let i = 24; i > 0; i = i - 5) {
+				let newObject = cellArray[i];
+				let htmlValue = newObject.innerHTML;
+				htmlValue = htmlValue.toString();
+				if (htmlValue.length < 1) {
+					cells[i].innerHTML = keeperPlayer.value;
+					break;
+				};
+			};
+            break;
+        case 'XTG':
+			for (let i = 24; i > 0; i = i - 5) {
+				let newObject = cellArray[i];
+				let htmlValue = newObject.innerHTML;
+				htmlValue = htmlValue.toString();
+				if (htmlValue.length < 1) {
+					cells[i].innerHTML = keeperPlayer.value;
+					break;
+				};
+			};
+            break;
+        case 'JW':
+			for (let i = 24; i > 0; i = i - 5) {
+				let newObject = cellArray[i];
+				let htmlValue = newObject.innerHTML;
+				htmlValue = htmlValue.toString();
+				if (htmlValue.length < 1) {
+					cells[i].innerHTML = keeperPlayer.value;
+					break;
+				};
+			};
+            break;
+        case 'Patt':
+			for (let i = 24; i > 0; i = i - 5) {
+				let newObject = cellArray[i];
+				let htmlValue = newObject.innerHTML;
+				htmlValue = htmlValue.toString();
+				if (htmlValue.length < 1) {
+					cells[i].innerHTML = keeperPlayer.value;
+					break;
+				};
+			};
+            break;
+        case 'WW':
+			for (let i = 24; i > 0; i = i - 5) {
+				let newObject = cellArray[i];
+				let htmlValue = newObject.innerHTML;
+				htmlValue = htmlValue.toString();
+				if (htmlValue.length < 1) {
+					cells[i].innerHTML = keeperPlayer.value;
+					break;
+				};
+			};
+            break;
+        case 'JMO':
+			for (let i = 24; i > 0; i = i - 5) {
+				let newObject = cellArray[i];
+				let htmlValue = newObject.innerHTML;
+				htmlValue = htmlValue.toString();
+				if (htmlValue.length < 1) {
+					cells[i].innerHTML = keeperPlayer.value;
+					break;
+				};
+			};
+            break;
+        case 'seth':
+			for (let i = 439; i > 0; i = i - 11) {
+				let newObject = cellArray[i];
+				let htmlValue = newObject.innerHTML;
+				htmlValue = htmlValue.toString();
+				if (htmlValue.length < 1) {
+					cells[i].innerHTML = keeperPlayer.value;
+					break;
+				};
+			};
+		    break;
+	};
+};
