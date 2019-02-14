@@ -26,7 +26,7 @@ let draftedPlayers = [];
 let playerId;
 
 let button = document.getElementById('playerSearch');
-button.addEventListener('click', getPlayer)
+button.addEventListener('click', getPlayer);
 
 function getPlayer () {
     removePlayerList();
@@ -48,7 +48,7 @@ function displayPlayers() {
     let playerId;
     let arrayLength;
     let createEl;
-    let createText
+    let createText;
     if (jsonData[0].search_player_all.queryResults.totalSize === '1') {
         name = jsonData[0].search_player_all.queryResults.row.name_display_first_last;
         position = jsonData[0].search_player_all.queryResults.row.position;
@@ -109,10 +109,10 @@ function getHittingStats(id) {
         if (this.status === 200) {
             jsonHittingStats.push(JSON.parse(this.responseText));
             displayHittingStats();
-        }
-    }
+        };
+    };
     getData.send();
-}
+};
 function getPitchingStats(id) {
     jsonPitchingStats = [];
     let idNumber = id;
@@ -121,15 +121,15 @@ function getPitchingStats(id) {
         if (this.status === 200) {
             jsonPitchingStats.push(JSON.parse(this.responseText));
             displayPitcherStats();
-        }
-    }
+        };
+    };
     getData.send();
-}
+};
 // this function grabs the player data being displayed in the playersearch section and puts it at the tope of the page
 function displayPlayerInfo (playerTeamPosition) {
     let draftPlayerName = document.getElementById('displayName');
     draftPlayerName.innerHTML = playerTeamPosition;
-}
+};
 // these two functions display the hitting and pitching stats from MLB's site
 function displayHittingStats() {
     checkDraftedPlayers();
@@ -162,9 +162,9 @@ function displayPitcherStats() {
     era.innerHTML = jsonPitchingStats[0].sport_pitching_tm.queryResults.row.era;
     whip.innerHTML = jsonPitchingStats[0].sport_pitching_tm.queryResults.row.whip;
     kbb.innerHTML = jsonPitchingStats[0].sport_pitching_tm.queryResults.row.kbb;
-}
+};
 
-draftButton.addEventListener('click', draftPlayer)
+draftButton.addEventListener('click', draftPlayer);
 
 function draftPlayer () {
     let selectedPlayer = document.getElementById('displayName').innerHTML;
@@ -181,12 +181,12 @@ function draftPlayer () {
                 draftedPlayers.push(playerId);
                 draftButton.setAttribute('class', 'disabled');
                 break;
-            }
-        }
+            };
+        };
     } else {
         console.log('this should display as default');
-    }
-}
+    };
+};
 function checkDraftedPlayers() {
     if (draftedPlayers.length < 1) {
         draftButton.setAttribute('class', 'active');
