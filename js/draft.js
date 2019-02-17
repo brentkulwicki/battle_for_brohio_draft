@@ -5,6 +5,7 @@ let jsonData = [];
 let jsonHittingStats = [];
 let jsonPitchingStats = [];
 let playerParent = document.getElementById('playerList');
+let draftedPlayerCells = document.getElementsByTagName('td');
 //variable for the nodes where the html will be spliced in using innerHTML
 let gs = document.getElementById('gs');
 let runs = document.getElementById('runs');
@@ -341,3 +342,11 @@ function inputKeepers() {
 };
 let keeperButton = document.getElementById('keepPlayers');
 keeperButton.addEventListener('click', inputKeepers);
+
+function displayHidden(event) {
+    let cellContent = event.target.innerHTML;
+    console.log(cellContent);
+}
+for (let tdLoop = 0; tdLoop < draftedPlayerCells.length; tdLoop++) {
+    draftedPlayerCells[tdLoop].addEventListener("mouseover", displayHidden);
+}
