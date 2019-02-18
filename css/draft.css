@@ -86,6 +86,7 @@ td {
     height: 22px;
     display: inline-block;
     overflow: hidden;
+    position: relative;
 }
 .active {
     width: 150px;
@@ -99,8 +100,4 @@ td {
     height: 50px;
     background-color: lightgrey;
     color: darkgrey;
-}
-td:hover {
-    overflow: visible;
-    z-index: 1;
 }

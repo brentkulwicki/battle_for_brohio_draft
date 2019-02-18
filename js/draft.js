@@ -109,6 +109,7 @@ function getHittingStats(id) {
     getData.onload = function() {
         if (this.status === 200) {
             jsonHittingStats.push(JSON.parse(this.responseText));
+            console.log(jsonHittingStats);
             displayHittingStats();
         };
     };
@@ -121,6 +122,7 @@ function getPitchingStats(id) {
     getData.onload = function() {
         if (this.status === 200) {
             jsonPitchingStats.push(JSON.parse(this.responseText));
+            console.log(jsonPitchingStats);
             displayPitcherStats();
         };
     };
@@ -179,6 +181,7 @@ function draftPlayer () {
             textValue = textValue.toString();
             if (textValue.length < 1) {
                 cells[i].innerHTML = selectedPlayer;
+                cells[i].setAttribute('title', selectedPlayer);
                 draftedPlayers.push(playerId);
                 draftButton.setAttribute('class', 'disabled');
                 break;
@@ -342,11 +345,3 @@ function inputKeepers() {
 };
 let keeperButton = document.getElementById('keepPlayers');
 keeperButton.addEventListener('click', inputKeepers);
-
-function displayHidden(event) {
-    let cellContent = event.target.innerHTML;
-    console.log(cellContent);
-}
-for (let tdLoop = 0; tdLoop < draftedPlayerCells.length; tdLoop++) {
-    draftedPlayerCells[tdLoop].addEventListener("mouseover", displayHidden);
-}
