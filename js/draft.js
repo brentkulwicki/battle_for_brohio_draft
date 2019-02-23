@@ -363,6 +363,7 @@ function inputKeepers() {
 				htmlValue = htmlValue.toString();
 				if (htmlValue.length < 1 && draftButton.className === 'active') {
                     cells[i].innerHTML = selectedPlayer;
+                    cells[i].setAttribute('title', selectedPlayer);
                     draftedPlayers.push(playerId);
                     draftButton.setAttribute('class', 'disabled');
 					break;
@@ -376,6 +377,7 @@ function inputKeepers() {
 				htmlValue = htmlValue.toString();
 				if (htmlValue.length < 1 && draftButton.className === 'active') {
                     cells[i].innerHTML = selectedPlayer;
+                    cells[i].setAttribute('title', selectedPlayer);
                     draftedPlayers.push(playerId);
                     draftButton.setAttribute('class', 'disabled');
 					break;
@@ -389,6 +391,7 @@ function inputKeepers() {
 				htmlValue = htmlValue.toString();
 				if (htmlValue.length < 1 && draftButton.className === 'active') {
                     cells[i].innerHTML = selectedPlayer;
+                    cells[i].setAttribute('title', selectedPlayer);
                     draftedPlayers.push(playerId);
                     draftButton.setAttribute('class', 'disabled');
 					break;
@@ -402,6 +405,7 @@ function inputKeepers() {
 				htmlValue = htmlValue.toString();
 				if (htmlValue.length < 1 && draftButton.className === 'active') {
                     cells[i].innerHTML = selectedPlayer;
+                    cells[i].setAttribute('title', selectedPlayer);
                     draftedPlayers.push(playerId);
                     draftButton.setAttribute('class', 'disabled');
 					break;
@@ -415,6 +419,7 @@ function inputKeepers() {
 				htmlValue = htmlValue.toString();
 				if (htmlValue.length < 1 && draftButton.className === 'active') {
                     cells[i].innerHTML = selectedPlayer;
+                    cells[i].setAttribute('title', selectedPlayer);
                     draftedPlayers.push(playerId);
                     draftButton.setAttribute('class', 'disabled');
 					break;
@@ -428,6 +433,7 @@ function inputKeepers() {
 				htmlValue = htmlValue.toString();
 				if (htmlValue.length < 1 && draftButton.className === 'active') {
                     cells[i].innerHTML = selectedPlayer;
+                    cells[i].setAttribute('title', selectedPlayer);
                     draftedPlayers.push(playerId);
                     draftButton.setAttribute('class', 'disabled');
 					break;
@@ -441,6 +447,7 @@ function inputKeepers() {
 				htmlValue = htmlValue.toString();
 				if (htmlValue.length < 1 && draftButton.className === 'active') {
                     cells[i].innerHTML = selectedPlayer;
+                    cells[i].setAttribute('title', selectedPlayer);
                     draftedPlayers.push(playerId);
                     draftButton.setAttribute('class', 'disabled');
 					break;
@@ -454,6 +461,7 @@ function inputKeepers() {
 				htmlValue = htmlValue.toString();
 				if (htmlValue.length < 1 && draftButton.className === 'active') {
                     cells[i].innerHTML = selectedPlayer;
+                    cells[i].setAttribute('title', selectedPlayer);
                     draftedPlayers.push(playerId);
                     draftButton.setAttribute('class', 'disabled');
 					break;
@@ -467,6 +475,7 @@ function inputKeepers() {
 				htmlValue = htmlValue.toString();
 				if (htmlValue.length < 1 && draftButton.className === 'active') {
                     cells[i].innerHTML = selectedPlayer;
+                    cells[i].setAttribute('title', selectedPlayer);
                     draftedPlayers.push(playerId);
                     draftButton.setAttribute('class', 'disabled');
 					break;
@@ -480,6 +489,7 @@ function inputKeepers() {
 				htmlValue = htmlValue.toString();
 				if (htmlValue.length < 1 && draftButton.className === 'active') {
                     cells[i].innerHTML = selectedPlayer;
+                    cells[i].setAttribute('title', selectedPlayer);
                     draftedPlayers.push(playerId);
                     draftButton.setAttribute('class', 'disabled');
 					break;
