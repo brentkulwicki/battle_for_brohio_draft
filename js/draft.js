@@ -332,8 +332,9 @@ function draftPlayer () {
                 break;
             };
         };
+    let buttonArray = document.getElementsByTagName('button');
+    buttonArray[2].setAttribute('disabled', true);
     } else {
-        console.log('this should display as default');
     };
 };
 function checkDraftedPlayers() {
@@ -495,7 +496,7 @@ function inputKeepers() {
 					break;
 				};
 			};
-		    break;
+            break;
 	};
 };
 let keeperButton = document.getElementById('keepPlayers');

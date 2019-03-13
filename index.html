@@ -47,11 +47,25 @@
             </div>
         </div>
         <div id='player_search'>
+            <select id='small-screen-only'>
+                <option value='display-none' disabled selected>Select a team to view picks</option>
+                <option value='Vin-display'>Vin</option>
+                <option value='BB-display'>BB</option>
+                <option value='Bruc-display'>Bruc</option>
+                <option value='BK-display'>BK</option>
+                <option value='XTG-display'>XTG</option>
+                <option value='JW-display'>JW</option>
+                <option value='Patt-display'>Patt</option>
+                <option value='WW-display'>WW</option>
+                <option value='JMO-display'>JMO</option>
+                <option value='seth-display'>seth</option>
+            </select>
             <label>Player Last Name</label>
             <input type='text' id='lastName'>
             <button id='playerSearch'>Search</button>
             <div id='enterKeepers'>
                 <select>
+                    <option value='default-selected' disabled selected>Select Keeper Team</option>
                     <option value='Vin'>Vin</option>
                     <option value='BB'>BB</option>
                     <option value='BRUC'>BRUC</option>

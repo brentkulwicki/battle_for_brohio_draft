@@ -101,3 +101,8 @@ td {
     background-color: lightgrey;
     color: darkgrey;
 }
+@media only screen and (min-width: 900px) {
+    #small-screen-only {
+        display: none;
+    }
+}
